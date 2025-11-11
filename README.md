@@ -81,19 +81,34 @@ data <- importData("proteomics_data.csv")
 
 # Filter and normalize
 filtered <- filterMissingValues(data, threshold = 0.5)
-normalized <- normalizeData(filtered)
-
-# Impute missing values
-imputed <- imputeValues(normalized)
-
-# Statistical testing
-results <- performTTest(imputed, group1_cols, group2_cols)
+normalized <- normalizeData(filtered) # log2quantile normalization
+relative_normalized <- normalizeData(filtered, method = "relative")
 
 # Visualization
-volcano_plot <- makeVolcano(results, p_cutoff = 1.3, fc_cutoff = 1)
+volcano_plot <- makeVolcano(results, fc_cutoff = 1)
 pca_results <- performPCA(imputed)
 pca_plot <- plotPCA(pca_results)
 ```
+
+### Example Workflow Using Pipe
+
+```r
+library(proteomicsUtils)
+
+# Import filter and normalize all at once
+normalized <- importData("proteomics_data.csv") %>%
+    filterMissingValues(threshold = 0.5) %>%
+    filterKeratin() %>%
+    # If serum && depleted
+    # filterHighAbundance() %>%
+    normalizeData()
+
+# pca
+pca_plot <- normalized %>%
+    performPCA() %>%
+    plotPCA()
+```
+
 
 ### Example Functions
 

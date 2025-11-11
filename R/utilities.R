@@ -935,32 +935,6 @@ makeBarplot_simp <- function(df, cohort_labels, gene, num = 0) {
   return(p)
 }
 
-#' imputeValues
-#'
-#' @param row a row from a dataframe containing missing values
-#'
-#' @return a row with missing values imputed using truncated normal distribution
-#' @export
-#'
-#' @examples
-#' imputeValues(df[1, ])
-imputeValues <- function(row) {
-  # require(truncnorm) # REMOVED: library calls should be in DESCRIPTION/NAMESPACE
-  observed_values <- row[!is.na(row)]
-  
-  if (length(observed_values) == 0) {
-    return(row)
-  }
-  
-  mean_value <- mean(observed_values)
-  sd_value <- sd(observed_values)
-  lower_bound <- quantile(observed_values, 0.01)
-  
-  row[is.na(row)] <- rtruncnorm(sum(is.na(row)), a = lower_bound, b = mean_value + 3*sd_value, mean = mean_value, sd = sd_value)
-  
-  return(row)
-}
-
 #' calculateROC
 #'
 #' @description
