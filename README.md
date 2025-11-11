@@ -49,8 +49,6 @@ BiocManager::install(c("clusterProfiler", "ComplexHeatmap"))
 
 ### From Local Source
 
-If you have the source files locally:
-
 ```r
 install.packages("proteomicsUtils_0.1.0.tar.gz", repos = NULL, type = "source")
 ```
@@ -62,14 +60,6 @@ R CMD INSTALL proteomicsUtils_0.1.0.tar.gz
 ```
 
 ## Usage
-
-After installation, load the package in your R session:
-
-```r
-library(proteomicsUtils)
-```
-
-Now you can use any of the 29 functions directly without sourcing the utilities.R file!
 
 ### Example Workflow
 
