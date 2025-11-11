@@ -145,30 +145,11 @@ The package includes 29 functions:
 28. impute_minprob
 29. perform_rowwise_anova_tukey_fc
 
-## Publishing to GitHub
-
-To upload this package to GitHub:
-
-```bash
-cd proteomicsUtils
-git init
-git add .
-git commit -m "Initial commit of proteomicsUtils package"
-git branch -M main
-git remote add origin https://github.com/yourusername/proteomicsUtils.git
-git push -u origin main
-```
-
-Then anyone can install it with:
-
-```r
-remotes::install_github("yourusername/proteomicsUtils")
-```
-
 ## License
 
 MIT License
 
 ## Author
 
-Vishal
+Vishal Sandilya  
+vishal.sandilya@ttu.edu
