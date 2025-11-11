@@ -152,4 +152,4 @@ MIT License
 ## Author
 
 Vishal Sandilya  
-vishal.sandilya@ttu.edu
+<vishal.sandilya@ttu.edu>
